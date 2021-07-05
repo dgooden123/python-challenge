@@ -66,27 +66,39 @@ with open(csvpath) as csvfile:
             otooley_n += 1
 
 #percent of votes by candidate
-khan_p = (khan_n/votes)*100
-correy_p = (correy_n/votes)*100
-li_p= (li_n/votes)*100
-otooley_p= (otooley_n/votes)*100
+khan_p = round((khan_n/votes)*100)
+correy_p = round((correy_n/votes)*100)
+li_p= round((li_n/votes)*100)
+otooley_p= round((otooley_n/votes)*100)
 
 #determine  the most votes
 most_votes=max(khan_n, correy_n, li_n, otooley_n)
-print(most_votes)
+#print(most_votes)
 
 #determine the winner
 if most_votes==khan_n: 
     winner="Khan"
-else if most_votes==correy_n:
+elif most_votes==correy_n:
     winner="Correy"
-else if most_votes==li_n:
+elif most_votes==li_n:
     winner="Li"
-else winner="O'Tooley"
+else: winner="O'Tooley"
 
-printer(winner)
+#print(winner)
 #print and output results
-# print(f"Total Months: {total_months}")
+print(f"Election Results")
+print(f"----------------------------")
+print(f"Total Votes: {votes}")
+print(f"----------------------------")
+print(f"Khan: {khan_p}% ({khan_n})")
+print(f"Correy: {correy_p}% ({correy_n})")
+print(f"Li: {li_p}% ({li_n})")
+print(f"O'Tooley: {otooley_p}% ({otooley_n})")
+print(f"----------------------------")
+print(f"Winner: {winner}")
+
+
+
 # print(f"Net Profit/Losses: {net_profit}")
 # print(f"Average Profit/Losses: {avg_profit}")
 
