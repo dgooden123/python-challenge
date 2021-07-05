@@ -24,11 +24,16 @@ import csv
 
 #define variables
 votes = 0
-khan = 0
-correy = 0
-li= 0
-otooley= 0
 
+khan_n = 0
+correy_n = 0
+li_n= 0
+otooley_n= 0
+
+khan_p = 0
+correy_p = 0
+li_p= 0
+otooley_p= 0
 
 # set path for CSV election file
 
@@ -47,7 +52,7 @@ with open(csvpath) as csvfile:
 
     # Read each row of data add vote 
     for row in csvreader:
-               total_votes += 1
+               votes += 1
         
         # For each row determine the candidate 
         if (row[2] == "Khan"):
@@ -59,31 +64,18 @@ with open(csvpath) as csvfile:
         else:
             otooley += 1
 
-#total number of months in dataset
-total_months=len(months)
-#calculate the net profit
-net_profit=sum(profit)
+#percent of votes by candidate
+khan_p = (khan_n/votes)*100
+correy_p = (correy_n/votes)*100
+li_p= (li_n/votes)*100
+otooley_p= (otooley_n/votes)*100
 
-#calculate the average profit
-avg_profit=sum(net_changes)/len(net_changes)
-
-max_profit=max(net_changes)
-min_profit=min(net_changes)
-max_index=net_changes.index(max_profit)
-min_index=net_changes.index(min_profit)
-
-
-greatest_inc_month=months[max_index+1]
-greatest_dec_month=months[min_index+1]
-print(f"{greatest_inc_month} {max_profit}")
-print(f"{greatest_dec_month} {min_profit}")
-#find the month with the greatest profit and greatest loss
-
-
-
+#determine who received the most votes
+winner=max(khan_n, correy_n, li_n, otooley_n)
+print(winner)
 #print and output results
-print(f"Total Months: {total_months}")
-print(f"Net Profit/Losses: {net_profit}")
-print(f"Average Profit/Losses: {avg_profit}")
+# print(f"Total Months: {total_months}")
+# print(f"Net Profit/Losses: {net_profit}")
+# print(f"Average Profit/Losses: {avg_profit}")
 
 #output = os.path.join('..', 'Resources', 'budget_output.txt')
