@@ -52,17 +52,18 @@ with open(csvpath) as csvfile:
 
     # Read each row of data add vote 
     for row in csvreader:
-               votes += 1
+               
+        votes += 1
         
         # For each row determine the candidate 
         if (row[2] == "Khan"):
-            khan += 1
+            khan_n += 1
         elif (row[2] == "Correy"):
-            correy += 1
+            correy_n += 1
         elif (row[2] == "Li"):
-            li += 1
+            li_n += 1
         else:
-            otooley += 1
+            otooley_n += 1
 
 #percent of votes by candidate
 khan_p = (khan_n/votes)*100
@@ -70,9 +71,20 @@ correy_p = (correy_n/votes)*100
 li_p= (li_n/votes)*100
 otooley_p= (otooley_n/votes)*100
 
-#determine who received the most votes
-winner=max(khan_n, correy_n, li_n, otooley_n)
-print(winner)
+#determine  the most votes
+most_votes=max(khan_n, correy_n, li_n, otooley_n)
+print(most_votes)
+
+#determine the winner
+if most_votes==khan_n: 
+    winner="Khan"
+else if most_votes==correy_n:
+    winner="Correy"
+else if most_votes==li_n:
+    winner="Li"
+else winner="O'Tooley"
+
+printer(winner)
 #print and output results
 # print(f"Total Months: {total_months}")
 # print(f"Net Profit/Losses: {net_profit}")
