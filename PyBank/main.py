@@ -23,10 +23,13 @@ import csv
 months = []
 profit= []
 changes= []
+total_months=0
+net_changes= []
+
 
 # set path for CSV budget file
 #csvpath=os.path.join('Users','dgoodenough', 'python-challenge', 'PyBank', 'Resources', 'budget_data.csv')
-csvpath=os.path.join('..', 'Resources', 'budget_data.csv')
+csvpath=os.path.join('Resources', 'budget_data.csv')
 # read CSV
 with open(csvpath) as csvfile:
 
@@ -38,16 +41,25 @@ with open(csvpath) as csvfile:
      # Read the header row first 
     csv_header = next(csvreader)
     #print(f"CSV Header: {csv_header}")
+    jan_data=next(csvreader)
+    months.append(jan_data[0])
+    profit.append(int(jan_data[1]))
+    previous_net=int(jan_data[1])
 
 
     # Read each row of data after the header add to the months and profit lists
     for row in csvreader:
         months.append(row[0])
-        profit.append(row[1])
-        changes.append(profit[i+1]-profit [i]
+        profit.append(int(row[1]))
+        changes=int(row[1])-previous_net
+        previous_net=int(row[1])
+        
+        net_changes.append(changes)
+
 
         #print(row)
         #print(months)
+
 
 #total number of months in dataset
 total_months=len(months)
@@ -55,15 +67,25 @@ total_months=len(months)
 net_profit=sum(profit)
 
 #calculate the average profit
-avg_profit=net_profit/total_months
+avg_profit=sum(net_changes)/len(net_changes)
 
+max_profit=max(net_changes)
+min_profit=min(net_changes)
+max_index=net_changes.index(max_profit)
+min_index=net_changes.index(min_profit)
+
+
+greatest_inc_month=months[max_index+1]
+greatest_dec_month=months[min_index+1]
+print(f"{greatest_inc_month} {max_profit}")
+print(f"{greatest_dec_month} {min_profit}")
 #find the month with the greatest profit and greatest loss
 
 
 
 #print and output results
-print(f"Total Months: str(total_months)")
-print(f"Net Profit/Losses: str(net_profit)")
-print(f"Average Profit/Losses: str(avg_profit)")
+print(f"Total Months: {total_months}")
+print(f"Net Profit/Losses: {net_profit}")
+print(f"Average Profit/Losses: {avg_profit}")
 
-output = os.path.join('..', 'Resources', 'budget_output.txt')
+#output = os.path.join('..', 'Resources', 'budget_output.txt')
