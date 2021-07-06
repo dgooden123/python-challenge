@@ -77,15 +77,19 @@ min_index=net_changes.index(min_profit)
 
 greatest_inc_month=months[max_index+1]
 greatest_dec_month=months[min_index+1]
-print(f"{greatest_inc_month} {max_profit}")
-print(f"{greatest_dec_month} {min_profit}")
+
 #find the month with the greatest profit and greatest loss
 
 
 
 #print and output results
+print(f"Financial Analysis")
+print(f"----------------------------")
 print(f"Total Months: {total_months}")
-print(f"Net Profit/Losses: {net_profit}")
-print(f"Average Profit/Losses: {avg_profit}")
+print(f"Total: ${net_profit}")
+print(f"Average Change: ${avg_profit}")
+print(f"Greatest Increase in Profits: {greatest_inc_month} ${max_profit}")
+print(f"Greatest Decrease in Profits: {greatest_dec_month} ${min_profit}")
+
 
 #output = os.path.join('..', 'Resources', 'budget_output.txt')
