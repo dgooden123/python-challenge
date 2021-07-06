@@ -91,5 +91,14 @@ print(f"Average Change: ${avg_profit}")
 print(f"Greatest Increase in Profits: {greatest_inc_month} ${max_profit}")
 print(f"Greatest Decrease in Profits: {greatest_dec_month} ${min_profit}")
 
+#to text file
+output = os.path.join('Analysis', 'budget_output.txt')
+with open(output, 'w') as txtfile:
+    txtfile.write(f"Financial Analysis\n")
+    txtfile.write(f"----------------------------\n")
+    txtfile.write(f"Total Months: {total_months}\n")
+    txtfile.write(f"Total: ${net_profit}\n")
+    txtfile.write(f"Average Change: ${avg_profit}\n")
+    txtfile.write(f"Greatest Increase in Profits: {greatest_inc_month} ${max_profit}\n")
+    txtfile.write(f"Greatest Decrease in Profits: {greatest_dec_month} ${min_profit}\n")
 
-#output = os.path.join('Analysis', 'budget_output.txt')
