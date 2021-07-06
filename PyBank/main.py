@@ -92,4 +92,4 @@ print(f"Greatest Increase in Profits: {greatest_inc_month} ${max_profit}")
 print(f"Greatest Decrease in Profits: {greatest_dec_month} ${min_profit}")
 
 
-#output = os.path.join('..', 'Resources', 'budget_output.txt')
+#output = os.path.join('Analysis', 'budget_output.txt')
