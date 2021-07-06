@@ -102,4 +102,19 @@ print(f"Winner: {winner}")
 # print(f"Net Profit/Losses: {net_profit}")
 # print(f"Average Profit/Losses: {avg_profit}")
 
-#output = os.path.join('..', 'Resources', 'budget_output.txt')
+
+output = os.path.join('Analysis', 'election_output.txt')
+with open(output, 'w') as txtfile:
+    txtfile.write(f"Election Results\n")
+    txtfile.write(f"----------------------------\n")
+    txtfile.write(f"Total Votes: {votes}\n")
+    txtfile.write(f"----------------------------\n")
+    txtfile.write(f"Khan: {khan_p}% ({khan_n})\n")
+    txtfile.write(f"Correy: {correy_p}% ({correy_n})\n")
+    txtfile.write(f"Li: {li_p}% ({li_n})\n")
+    txtfile.write(f"O'Tooley: {otooley_p}% ({otooley_n})\n")
+    txtfile.write(f"----------------------------\n")
+    txtfile.write(f"Winner: {winner}\n")
+
+
+    
